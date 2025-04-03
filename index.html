@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puissance 4</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Puissance 4</h1>
+  <div class="listeJoueurs">
+    <label>Nombre de joueurs :</label>
+    <select class="joueurs" onchange="game.updateNombreJoueurs()">
+      <option value="2">2 Joueurs</option>
+      <option value="3">3 Joueurs</option>
+      <option value="4">4 Joueurs</option>
+    </select>
+    <label >Lignes :</label>
+    <input type="number" class="lignes" min="1" max="25" value="6" oninput="game.updateDimensions()">
+    <label>Colonnes :</label>
+    <input type="number" class="colonnes" min="1" max="20" value="7" oninput="game.updateDimensions()">
+  </div>
+  <br>
+  <div class="couleurJoueurs">
+    <label>Couleur Joueur 1 :</label>
+    <input type="color" class="couleur" value="#ff0000" oninput="game.updateCouleurs()">
+    <label>Couleur Joueur 2 :</label>
+    <input type="color" class="couleur" value="#0000ff" oninput="game.updateCouleurs()">
+    <label>Couleur Joueur 3 :</label>
+    <input type="color" class="couleur" value="#00ff00" disabled oninput="game.updateCouleurs()">
+    <label>Couleur Joueur 4 :</label>
+    <input type="color" class="couleur" value="#ffff00" disabled oninput="game.updateCouleurs()">
+  </div>
+  <br>
+  <div class="jeu">
+    <div class="plateau"></div>
+    <div class="tableauScore">
+      <p class="score">Joueur 1 : 0</p>
+      <p class="score">Joueur 2 : 0</p>
+      <p class="score">Joueur 3 : 0</p>
+      <p class="score">Joueur 4 : 0</p>
+    </div>
+  </div>
+  <div class="vainqueur"></div>
+  <div class="controls">
+    <button class="new-game" onclick="game.nouvellePartie()">Nouvelle Partie</button>
+    <button class="reset" onclick="game.reset()">Réinitialiser</button>
+    <button class="undo" onclick="game.undo()">Annuler le dernier coup</button>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

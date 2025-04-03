@@ -1,0 +1,84 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(227, 143, 113);
+}
+
+:root {
+  --colonnes: 7;
+  --lignes: 6;
+  --tailleTrous: 50px;
+}
+
+.listeJoueurs, .couleurJoueurs {
+  margin: 4px;
+}
+
+.jeu {
+  display: inline-block;
+  background-color: #0568cc;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.plateau {
+  display: grid;
+  grid-template-columns: repeat(var(--colonnes), var(--tailleTrous));
+  grid-template-rows: repeat(var(--lignes), var(--tailleTrous));
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.trous {
+  background-color: white;
+  border-radius: 50%;
+  border: 1.5px solid #000;
+  cursor: pointer;
+  width: var(--tailleTrous);
+  height: var(--tailleTrous);
+}
+
+.trous:hover {
+  background-color: rgb(205, 200, 200);
+}
+
+.tableauScore{
+  margin-top: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vainqueur {
+  font-size: 25px;
+  font-weight: 800;
+  color: green;
+  margin-top: 12px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgb(198, 226, 221);
+}
+
+button:active {
+  background-color: rgb(143, 174, 168);
+}
+
+
+@keyframes move {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.trous.dropped {
+  animation: move 0.3s;
+  position: relative;
+}
